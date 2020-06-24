@@ -41,6 +41,12 @@
             color: #06a;
         }
 
+        .float_right {
+            float: right;
+        }
+        .float_end {
+            float: none;
+        }
     </style>
 </head>
 
@@ -152,6 +158,36 @@ Let q(x) be a property provable about objects x of type T. Then q(y) should be p
 # Interface Segregation
 
 > Many client specific interfaces are better than one general purpose interface
+
+__Bad Sample:__
+
+.float_right[![](./out/interface_seg_bad/interface-segregation.svg)]
+
+* Clients (Importer, Printer, Display) depend on 'Repositories' but:
+    * Printer and Display need only the "reading" part
+    * Importers need only the writing part
+* From the view of the clients 'Repository' is the wrong abstraction
+* Hard to apply e.g. Decorator Patterns or reuse 'Printers' for other 'DataSources'.
+
+---
+
+# Interface Segregation
+
+__Better Sample:__
+
+.float_right[![](./out/interface_seg/interface-segregation.svg)]
+
+* Clients know now only what they need
+* Composition patterns are now easier to apply
+* Tests simpler to write
+
+<br/>
+<br/>
+
+_How to adhere to the principle ?_
+
+* Think about clients on interface design
+* Single responsibility principle for interfaces
 
 ---
 

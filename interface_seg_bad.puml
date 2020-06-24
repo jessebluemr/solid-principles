@@ -1,0 +1,26 @@
+@startuml interface-segregation
+
+interface Repository {
+    read()
+    write()
+}
+
+class DataRepository
+
+class Printer{
+    repo.read()
+}
+class Display {
+    repo.read()
+}
+class Importer {
+    repo.write()
+}
+
+Importer ..> Repository
+Printer ..> Repository
+Display ..> Repository
+
+Repository <|-- DataRepository
+
+@enduml

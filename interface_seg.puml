@@ -1,0 +1,25 @@
+@startuml interface-segregation
+
+interface Reader {
+    read()
+}
+
+interface Writer {
+    write()
+}
+
+class DataRepository
+
+class Printer
+class Display
+class Importer
+
+
+Importer ..> Writer
+Printer ..> Reader
+Display ..> Reader
+
+Reader <|-- DataRepository
+Writer <|-- DataRepository
+
+@enduml
