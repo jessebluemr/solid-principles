@@ -35,7 +35,8 @@
 
         blockquote {
             border-left: 0.3em solid #ccc;
-            padding: 0 15px;
+            padding: 0 15pt 0 25pt;
+            margin-bottom: 40pt;
             font-style: italic;
             color: #06a;
         }
@@ -84,6 +85,8 @@ To avoid the anti-patterns be S.O.L.I.D.
 * _I_ nterface Segregation
 * _D_ ependency Inversion
 
+<br/>
+
 > Uncle Bob didn’t invent the principles,
 he pulled together some good coding practices
 that already existed around a central theme of managing dependencies
@@ -95,6 +98,38 @@ and put forward a good argument for using those practices together.
 
 > There should never be more than one reason for a class to change
 
+__Bad Sample:__
+
+```js
+class Handler {
+    handle(){
+        var stuff = this.parse("./file.input")
+        this.persistIntoDb(stuff);
+    }
+
+    parse(){ ... }
+
+    persistIntoDB(records){ ... }
+}
+```
+
+* Change required if input structure changes
+* Change required if kind of persistence changes
+
+__Better__: Extract "parse" and 'persistIntoDB' into independent classes.
+
+---
+
+# Single Responsibility
+
+_How to adhere to the principle ?_
+
+* Think about names
+* Unit Tests
+* Static code analysis:
+  * Class length
+  * Method length
+  * Complexity depth
 
 ---
 
