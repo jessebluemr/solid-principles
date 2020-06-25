@@ -158,8 +158,26 @@ _How to adhere to the principle ?_
 
 > Subclasses should be substitutable for their base classes
 
-Let q(x) be a property provable about objects x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
+_Let q(x) be a property provable about objects x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T._
 
+.float_right[![](./out/liskov/liskov.svg)]
+
+<br/>
+
+Sample of [Wikipedia](https://de.wikipedia.org/wiki/Liskovsches_Substitutionsprinzip):
+
+'Is a' association between Circle and Ellipse is mathematical correct
+but a circle is not allowed to be scaled on different axis.
+The correctness of inheritance is highly coupled to the provided properties/methods of each subclass.
+
+---
+
+# Liskov’s Substitution Principle
+
+_How to adhere to the principle ?_
+
+* Avoid inheritance
+* Be careful adding methods to super classes
 
 ---
 

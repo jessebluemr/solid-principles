@@ -1,0 +1,25 @@
+@startuml liskov
+
+class Graphic {
+    draw()
+}
+
+class Rectangle {
+
+}
+
+class Ellipse {
+    scaleX()
+    scaleY()
+}
+
+class Circle {
+
+}
+
+
+Graphic <|-- Rectangle
+Graphic <|-- Ellipse
+Ellipse <|-- Circle
+
+@enduml
