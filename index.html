@@ -52,6 +52,7 @@
         .image_size img {
             width: 340pt;
         }
+
         .small {
             font-size: small;
         }
@@ -151,6 +152,37 @@ _How to adhere to the principle ?_
 
 > A module should be open for extension but closed for modification
 
+_To add or change functionality in an module
+you should be able to do it by using well defined extension points rather than modifying existing code._
+
+__Bad Sample:__
+
+![](./out/openclosed_bad/openclosed.svg)
+
+Possible solutions:
+
+* Strategy pattern
+* Java [ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html)
+* Inheritance
+
+---
+
+# Open / Closed Principle
+
+__Better Sample:__
+
+.float_right[![](./out/openclosed/openclosed.svg)]
+
+* Well defined extension point 'SortAlgorithm'
+
+<br/>
+<br/>
+
+_How to adhere to the principle ?_
+
+* Think about extension points
+* Document the way how your code should be extended
+* Closed: Encapsulate the modules which should not be extended
 
 ---
 
@@ -178,6 +210,7 @@ _How to adhere to the principle ?_
 
 * Avoid inheritance
 * Be careful adding methods to super classes
+* Use `final` keyword to control inheritance
 
 ---
 
@@ -193,7 +226,7 @@ __Bad Sample:__
     * Printer and Display need only the "reading" part
     * Importers need only the writing part
 * From the view of the clients 'Repository' is the wrong abstraction
-* Hard to apply e.g. Decorator Patterns or reuse 'Printers' for other 'DataSources'.
+* Hard to apply e.g. Decorator Patterns or reuse 'Printers' for other 'DataSources'
 
 ---
 
@@ -238,7 +271,7 @@ __Better Sample:__
 
 .float_right[![](./out/di/di.svg)]
 
-* Importer depends now on a 'Writer' abstraction
+* Importer now depends on a 'Writer' abstraction
 * Simpler to provide e.g. storage alternatives
 * Simpler to write tests
 

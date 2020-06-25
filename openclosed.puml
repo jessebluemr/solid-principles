@@ -1,0 +1,23 @@
+@startuml openclosed
+
+interface SortAlgorithm {
+    sort(array);
+}
+
+class QuickSort
+class BubbleSort
+
+class Sorter {
+
+    sort(array, algorithmName);
+
+    registerAlgorithm(algorithmName, algorithm: SortAlgorithm)
+}
+
+Sorter --> "0..*" SortAlgorithm
+
+SortAlgorithm <|-- QuickSort
+SortAlgorithm <|-- BubbleSort
+
+
+@enduml

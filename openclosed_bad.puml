@@ -1,0 +1,18 @@
+@startuml openclosed
+
+class Sorter {
+
+    sort(array, algorithmName);
+}
+
+note left
+void sort(array, algorithmName){
+    switch(algorithmName) {
+        case "quick" : this.quickSort(array); break;
+        case "bubble" : this.bubbleSort(array); break;
+        default: throw ...
+    }
+}
+end note
+
+@enduml
