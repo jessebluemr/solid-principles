@@ -44,8 +44,16 @@
         .float_right {
             float: right;
         }
+
         .float_end {
             float: none;
+        }
+
+        .image_size img {
+            width: 340pt;
+        }
+        .small {
+            font-size: small;
         }
     </style>
 </head>
@@ -197,6 +205,35 @@ _How to adhere to the principle ?_
 
 High-level modules should not depend on low-level modules, and details should depend on abstractions.
 
+__Bad Sample:__
+
+![](./out/di_bad/di.svg)
+
+* Very high coupling
+* Importer depends on concrete implementation
+
+---
+
+# Dependency Inversion
+
+__Better Sample:__
+
+.float_right[![](./out/di/di.svg)]
+
+* Importer depends now on a 'Writer' abstraction
+* Simpler to provide e.g. storage alternatives
+* Simpler to write tests
+
+<br/>
+<br/>
+
+_How to adhere to the principle ?_
+
+* Unit Tests
+* Think about names and abstractions
+
+> Abuse: Introduce interfaces for any thing
+
 ---
 
 # Summary
@@ -204,6 +241,13 @@ High-level modules should not depend on low-level modules, and details should de
 The aim of the SOLID principles is to reduce dependencies, enabling the ability to change code in one area of an application without impacting code in other areas.
 
 .center[be S.O.L.I.D.]
+
+<br/>
+<br/>
+
+.small[Tradeoff between prototyping and design:]
+
+.image_size[![](./out/payoffgraph.png)]
 
 ---
 

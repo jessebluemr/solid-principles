@@ -1,0 +1,16 @@
+@startuml di
+
+interface Writer {
+    write()
+}
+
+class Importer {
+    writer.write()
+}
+
+
+Importer ..> Writer
+Writer <|-- FileRepository
+Writer <|-- MemoryRepository
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml di
+
+class DataRepository
+class Importer {
+    repo.write()
+}
+
+Importer .> DataRepository
+
+@enduml
